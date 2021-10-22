@@ -1,0 +1,23 @@
+Report created from	GEN3-1289	/LOG/2021/10/12/GEN3-1289_0276.gen
+Experiment:	"LAMP RLEM para 20min 1*Cy vs G conc."
+Time:	12 October 2021 14:25
+User:	""
+Kit:	""
+
+	Well	Type	Result	Values	
+1	"10kG"	"Blue"	""			88.19	°C									
+1	"10kG"	"Yellow"	""	3:25												
+2	"3kG"	"Blue"	""	16:23		88.25	°C									
+2	"3kG"	"Yellow"	""	3:18												
+3	"1kG"	"Blue"	""			88.25	°C									
+3	"1kG"	"Yellow"	""	3:02												
+4	"300G"	"Blue"	""													
+4	"300G"	"Yellow"	""	3:03												
+5	"100G"	"Blue"	""													
+5	"100G"	"Yellow"	""	3:01												
+6	"30G"	"Blue"	""													
+6	"30G"	"Yellow"	""	3:44												
+7	"+ve"	"Blue"	""	12:08		88.33	°C									
+7	"+ve"	"Yellow"	""	3:29												
+8	"-ve"	"Blue"	""													
+8	"-ve"	"Yellow"	""	5:40												
