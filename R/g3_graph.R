@@ -33,7 +33,7 @@ g3_graph_amp <- function(g3obj){
     aes(x = time/60, y = flr, colour = well, text = sample) +
     scale_color_manual(
       name = "target",
-      values = viridis::viridis(8),
+      values = RColorBrewer::brewer.pal(8, "Set2"),
       labels = g3obj$sumtib$well,
       breaks = paste0("x", 1:8)
     )+
@@ -55,7 +55,7 @@ g3_graph_amp_point <- function(g3obj){
   gg <- ggplot(g3obj$amplification) +
     aes(x = time/60, y = flr, colour = sample, text = well) +
     scale_color_manual(
-      values = viridis::viridis(8),
+      values = RColorBrewer::brewer.pal(8, "Set2"),
       breaks = g3obj$sumtib$well,
     )+
     ggtitle(g3obj$jobname, g3obj$jobindex) +
