@@ -1,6 +1,6 @@
 Package: geniereader
 Title: Reads .csv files exported from the Genie-III for analysis in the R environment
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
     person("Moshe", "Jasper", , "moshe.jasper@unimelb.edu.au", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
