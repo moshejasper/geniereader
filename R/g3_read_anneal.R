@@ -1,3 +1,18 @@
+#' Read Genie-III csv summary + anneal file duo
+#'
+#' Takes character file location & name of a Genie csv set (minus the endings) and returns a list of
+#' summary and anneal data for the object, ready for further processing
+#'
+#' @param g3index character. Filepath and 'common' filename of the Genie-III csv trio. Should NOT include
+#' either the .CSV ending or any fileendings after and including a - symbol (so if file is X/Gen123-Anneal),
+#' would input 'X/Gen123'
+#'
+#' @return returns a list containing key information about the Genie-III experiment run and tibbles covering
+#' summary and anneal data.
+#' @export
+#'
+#' @examples
+#' g3_read_anneal("test")
 g3_read_anneal <- function(g3index){
 
   main <- readr::read_file(paste0(g3index, ".CSV")) %>%
@@ -5,7 +20,8 @@ g3_read_anneal <- function(g3index){
 
   jobindex <- main[1] %>%
     str_split(pattern = "\t", simplify = TRUE) %>%
-    .[,2]
+    .[,3] %>% str_split(patter = "_", simplify = TRUE)
+  jobindex <- jobindex[length(jobindex)] %>% str_sub(end = str_length(.) - 4)
 
 
   logpath <- main[1] %>%
