@@ -19,6 +19,3 @@ summary, and amplification data.
 Takes character file location & name of a Genie csv set (minus the endings) and returns a list of
 summary, and amplification data for the object, ready for further processing
 }
-\examples{
-g3_read_amp("test")
-}

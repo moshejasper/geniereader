@@ -17,6 +17,3 @@ returns tibble showing time eligible rows exceeded the threshold
 \description{
 Summarise Tt information for g3 object
 }
-\examples{
-g3_load("test") \%>\% g3_summarise()
-}
