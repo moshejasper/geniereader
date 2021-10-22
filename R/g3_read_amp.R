@@ -11,8 +11,6 @@
 #' summary, and amplification data.
 #' @export
 #'
-#' @examples
-#' g3_read_amp("test")
 g3_read_amp <- function(g3index){
 
   main <- readr::read_file(paste0(g3index, ".CSV")) %>%

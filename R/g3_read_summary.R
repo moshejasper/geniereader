@@ -10,8 +10,6 @@
 #' the summary data.
 #' @export
 #'
-#' @examples
-#' g3_read_summary("test")
 g3_read_summary <- function(g3index){
 
   main <- readr::read_file(paste0(g3index, ".CSV")) %>%

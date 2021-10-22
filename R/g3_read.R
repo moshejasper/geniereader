@@ -11,8 +11,6 @@
 #' summary, anneal, and amplification data.
 #' @export
 #'
-#' @examples
-#' g3_read("test")
 g3_read <- function(g3index){
 
   main <- readr::read_file(paste0(g3index, ".CSV")) %>%
