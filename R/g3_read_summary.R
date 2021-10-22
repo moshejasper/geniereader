@@ -17,7 +17,7 @@ g3_read_summary <- function(g3index){
 
   jobindex <- main[1] %>%
     str_split(pattern = "\t", simplify = TRUE) %>%
-    .[,3] %>% str_split(patter = "_", simplify = TRUE)
+    .[,3] %>% str_split(pattern = "_", simplify = TRUE)
   jobindex <- jobindex[length(jobindex)] %>% str_sub(end = str_length(.) - 4)
 
 
