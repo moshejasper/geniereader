@@ -11,7 +11,7 @@ g3_graph_anneal <- function(g3obj){
     geom_line(size = 1)+
     scale_color_manual(
       name = "target",
-      values = viridis::viridis(8),
+      values = RColorBrewer::brewer.pal(8, "Set2"),
       labels = g3obj$sumtib$well,
       breaks = paste0("x", 1:8),
     )+
