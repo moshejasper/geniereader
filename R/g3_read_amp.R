@@ -56,10 +56,13 @@ g3_read_amp <- function(g3index){
                      show_col_types = FALSE) %>%
     .[-c(2:9 * 2 - 1)]
 
+  colnames(amptib) <- c("time", paste0("x", 1:8))
+
+
+  amptib1 <- amptib %>% pivot_longer(-time, names_to = "well", values_to = "flr")
   colnames(amptib) <- c("time", sumtib$well)
-
-
-  amptib <- amptib %>% pivot_longer(-time, names_to = "dna", values_to = "flr")
+  amptib2 <- amptib %>% pivot_longer(-time, names_to = "sample", values_to = "flr")
+  amptib <- amptib1 %>% add_column(sample = amptib2$sample)
 
 
 

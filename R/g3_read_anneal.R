@@ -57,10 +57,13 @@ g3_read_anneal <- function(g3index){
                      show_col_types = FALSE) %>%
     .[-c(2:9 * 2 - 1)]
 
+  colnames(anntib) <- c("temp", paste0("x", 1:8))
+
+
+  anntib1 <- anntib %>% pivot_longer(-temp, names_to = "well", values_to = "flr")
   colnames(anntib) <- c("temp", sumtib$well)
-
-
-  anntib <- anntib %>% pivot_longer(-temp, names_to = "dna", values_to = "flr")
+  anntib2 <- anntib %>% pivot_longer(-temp, names_to = "sample", values_to = "flr")
+  anntib <- anntib1 %>% add_column(sample = anntib2$sample)
 
   g3obj <- list(jobname = jobname, logpath = logpath,
                 jobindex = jobindex, jobtime = jobtime,
