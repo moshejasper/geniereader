@@ -16,29 +16,54 @@ g3_read <- function(g3index){
   main <- readr::read_file(paste0(g3index, ".CSV")) %>%
     read_lines()
 
+  if (stringr::str_starts(main[2], "Experiment")){
+    newformat <- FALSE
+  }
+  else {
+    newformat <- TRUE
+  }
+
   jobindex <- main[1] %>%
     str_split(pattern = "\t", simplify = TRUE) %>%
     .[,3] %>% str_split(pattern = "_", simplify = TRUE)
   jobindex <- jobindex[length(jobindex)] %>% str_sub(end = str_length(.) - 4)
 
-
   logpath <- main[1] %>%
     str_split(pattern = "\t", simplify = TRUE) %>%
     .[,3]
 
-  print(logpath)
+  #print(logpath)
 
-  jobname <- main[2] %>%
-    str_split(pattern = "\t", simplify = TRUE) %>%
-    .[,2] %>%
-    str_sub(2, str_length(.) - 1)
+  if (newformat){
+    jobname <- main[3] %>%
+      str_split(pattern = "\t", simplify = TRUE) %>%
+      .[,2] %>%
+      str_sub(2, str_length(.) - 1)
 
-  jobtime <- main[3] %>%
-    str_split(pattern = "\t", simplify = TRUE) %>%
-    .[,2]
+    jobtime <- main[4] %>%
+      str_split(pattern = "\t", simplify = TRUE) %>%
+      .[,3]
+  }
+  else {
+    jobname <- main[2] %>%
+      str_split(pattern = "\t", simplify = TRUE) %>%
+      .[,2] %>%
+      str_sub(2, str_length(.) - 1)
 
-  sumtib <- read_tsv(paste0(g3index, ".CSV"), skip = 7, col_names = FALSE,
-                     show_col_types = FALSE)
+    jobtime <- main[3] %>%
+      str_split(pattern = "\t", simplify = TRUE) %>%
+      .[,2]
+  }
+
+  if (newformat){
+    sumtib <- read_tsv(paste0(g3index, ".CSV"), skip = 11, col_names = FALSE,
+                       show_col_types = FALSE)
+  }
+  else{
+    sumtib <- read_tsv(paste0(g3index, ".CSV"), skip = 7, col_names = FALSE,
+                       show_col_types = FALSE)
+  }
+
   sumtib <- sumtib[1:8]
 
   names(sumtib) <- c("num", "well", "type", "b1", "time", "b2", "temp", "temptype")
